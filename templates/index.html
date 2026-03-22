@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Analyzer Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+/* Page Background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main Card */
+.container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.container h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Welcome text */
+.welcome {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Upload box */
+.upload-box {
+    border: 2px dashed #764ba2;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+/* File input */
+input[type="file"] {
+    margin-top: 10px;
+}
+
+/* Analyze button */
+.analyze-btn {
+    background: #764ba2;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.analyze-btn:hover {
+    background: #5a3791;
+}
+
+/* Logout button */
+.logout-btn {
+    margin-top: 15px;
+    background: #ff4d4d;
+    color: white;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background: #cc0000;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🚀 Resume Analyzer</h1>
+
+    <p class="welcome">
+        Welcome <b>{{ session['user'] }}</b> 👋 <br>
+        Upload your resume and discover the best matching career path for you.
+    </p>
+
+    <form action="/analyze" method="POST" enctype="multipart/form-data">
+
+        <div class="upload-box">
+            <p>📄 Select your Resume (PDF only)</p>
+            <input type="file" name="resume" accept=".pdf" required>
+        </div>
+
+        <button type="submit" class="analyze-btn">
+            Analyze Resume
+        </button>
+
+    </form>
+
+    <form action="/logout">
+        <button type="submit" class="logout-btn">
+            Logout
+        </button>
+    </form>
+
+</div>
+
+</body>
+</html>

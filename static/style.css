@@ -1,0 +1,164 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: "Segoe UI", sans-serif;
+}
+
+body {
+background: linear-gradient(135deg, #667eea, #764ba2);
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.wrapper {
+background:#fff;
+border-radius: 20px;
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+width: 800px;
+max-width: 100%;
+display: flex;
+overflow: hidden;
+}
+
+.form-container {
+width: 50%;
+padding: 40px;
+transition: all 0.3s ease;
+}
+
+.form-container h2 {
+margin-bottom: 20px;
+color: #333;
+}
+
+.form-container form {
+display: flex;
+flex-direction: column;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+padding: 12px 15px;
+margin: 10px 0;
+border: 1px solid #ccc;
+border-radius: 10px;
+transition: border 0.3s ease;
+}
+
+.form-container input:focus {
+border: 2px solid #764ba2;
+outline: none;
+}
+
+.form-container button.submit-btn {
+margin-top: 15px;
+padding: 12px;
+border: none;
+background: linear-gradient(to right,#667eea, #764ba2);
+color: white;
+font-weight: bold;
+border-radius: 10px;
+cursor: pointer;
+transition: background 0.3s ease;
+}
+
+.form-container button.submit-btn:hover {
+background: linear-gradient(to left, #667eea, #764ba2);
+}
+
+.toggle-container {
+width: 50%;
+background: linear-gradient(to bottom right, #667eea, #764ba2);
+color: white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 40px;
+text-align: center;
+}
+
+.toggle-container button.switch-btn {
+padding: 8px 25px;
+background-color: transparent;
+border: 2px solid white;
+color: white;
+border-radius: 10px;
+font-weight: bold;
+cursor: pointer;
+transition: background 0.3s ease;
+}
+
+.toggle-container button.switch-btn:hover {
+background-color:rgba(255, 255, 255, 0.2);
+}
+
+/* Toggle */
+
+.form-container.signin {
+display: none;
+}
+
+.wrapper.active .form-container.login {
+display: none;
+}
+
+.wrapper.active .form-container.signin {
+display: block;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 768px) {
+
+.wrapper {
+flex-direction: column;
+}
+
+.form-container,
+.toggle-container {
+width: 100%;
+}
+
+.toggle-container {
+padding: 20px;
+}
+
+}
+
+/* Download Button */
+
+.download-btn{
+
+padding:14px 35px;
+font-size:18px;
+font-weight:bold;
+
+color:white;
+
+border:none;
+border-radius:40px;
+
+background: linear-gradient(45deg,#ff6a00,#ee0979);
+
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+cursor:pointer;
+
+transition: all 0.3s ease;
+
+}
+
+.download-btn:hover{
+
+transform: translateY(-4px);
+
+box-shadow:0 12px 30px rgba(0,0,0,0.35);
+
+background: linear-gradient(45deg,#ee0979,#ff6a00);
+
+}

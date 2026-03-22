@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Sign Up</title>
+
+<!-- CSS file connection -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="wrapper" id="formWrapper">
+
+    <!-- ================= LOGIN FORM ================= -->
+    <div class="form-container login">
+        <h2>Login</h2>
+
+        <!-- Connected to Flask /login route -->
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+    </div>
+
+
+    <!-- ================= SIGN UP FORM ================= -->
+    <div class="form-container signin">
+        <h2>Sign Up</h2>
+
+        <!-- Connected to Flask /register route -->
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+
+            <!-- Email optional (not stored in DB currently but okay) -->
+            <input type="email" name="email" placeholder="Email" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+    </div>
+
+
+    <!-- ================= TOGGLE SIDE ================= -->
+    <div class="toggle-container">
+        <h2 id="toggleHeading">Don't have an account?</h2>
+        <p id="toggleText">Sign up to get started!</p>
+        <button class="switch-btn" id="toggleBtn">Sign Up</button>
+    </div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT FOR TOGGLE ================= -->
+<script>
+const wrapper = document.getElementById('formWrapper');
+const toggleBtn = document.getElementById('toggleBtn');
+const toggleHeading = document.getElementById('toggleHeading');
+const toggleText = document.getElementById('toggleText');
+
+toggleBtn.addEventListener('click', () => {
+
+    wrapper.classList.toggle('active');
+
+    if(wrapper.classList.contains('active')){
+        toggleHeading.textContent = "Already have an account?";
+        toggleText.textContent = "Login to your account!";
+        toggleBtn.textContent = "Login";
+    } else {
+        toggleHeading.textContent = "Don't have an account?";
+        toggleText.textContent = "Sign up to get started!";
+        toggleBtn.textContent = "Sign Up";
+    }
+});
+</script>
+
+</body>
+</html>
